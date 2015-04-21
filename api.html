@@ -7,38 +7,40 @@
 	<script src="https://connect.soundcloud.com/sdk.js"></script>
 	<script src="https://w.soundcloud.com/player/api.js"></script>
 	<script src="app/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/style1.css">
 </head>
 
 <body>
-<div id="comment"> Latest Track: </div>
 
+<div class="top-navigation"> SOUNDCLOUD API HACK
+</div>
 
+<section class ="part1">
+<div id="comment" class="comment"> FIND TRACKS BY TYPING IN ARTIST NAME, SONG OR TRACK </div>
+
+<div class="enter">
 <input id="item">
-			<button type="submit" id="add">+</button>
-
-<div id="main">
-
-			<iframe  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/116083623&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+<button type="submit" id="add">Submit</button>
+<button type="button" id="sub" value="Submit">Reset</button>
 </div>
 
 
+
+<div id="main" class="main">
+
+			<iframe width="80%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/78161243&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+</div>
+
+<div id="repeat" class = "repeat">
+
+</div>
     
 
- <ul id="results">
+ <ul id="results" class="resutls">
            </ul>
 
 
-<a href="#" id="poo">Start</a>
 
-<div id="who"> hahahahah</div>
-
-
-
-<div id="target"> </div>
-		
-
-
-<button type="button" id="sub" value="Submit">Erase ME</button>
 
 
 

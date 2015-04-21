@@ -8,14 +8,14 @@ SC.initialize({
 
 $('#add').click(function() {
   var playerInput = $('input#item').val();
-  $("#comment").append(playerInput); 
+  $("#repeat").append("Results for " + playerInput); 
 
 
 
   SC.get('https://api.soundcloud.com/tracks', { genres: playerInput }, function(tracks) {
   $(tracks).each(function(index, track) {
   var i = track.id;
-  var uniqueTrack = '<button type="button" class="start">' + 'CLICK ME' + '</button>' + '<div id="switch">' + i + '</div>';
+  var uniqueTrack = '<button type="button" class="start">' + 'Select Track' + '</button>' + '<span>' + i + '</span>';
   $('#results').append($('<li></li>').html(track.title + ' - '  + uniqueTrack));
    });
   });
@@ -32,17 +32,25 @@ $('#add').click(function() {
 
 
 
-$('ul').on('click', '.start', function() {
-    $('#main').empty();
-    SC.get('https://api.soundcloud.com/tracks', { genres: playerInput }, function(tracks) {
-   $(tracks).each(function(index, track) {
-   var i = track.id;
-   var manDingo = '<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + i + '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>';
-    $('#main').append($(manDingo));
+$('ul').on('click', '.start', function(event) {
+  var listItem = $(this).closest("li");
+  var itemName = listItem.find("span").text();
+  $('#main').empty();
+  $('#main').append('<iframe  width="80%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+itemName+ '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>');
+  
+//get trace id from html
+//build url using id
+//modify src of the main frame
+
   });
 
- });
-  });
+$('#sub').click(function() {
+    $('#results').empty();
+    $('#repeat').empty();
+    $('input#item').val("");
+});
+
+
  });
 
 
